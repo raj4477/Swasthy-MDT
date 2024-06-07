@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
    Button accelerometer;
    Button camera;
    Button battery;
+   Button allSensor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         accelerometer = (Button) findViewById(R.id.accelerometer_sensor_button);
         camera = (Button) findViewById(R.id.camera);
         battery = (Button) findViewById(R.id.batteryButtton);
+        allSensor = (Button) findViewById(R.id.allSensor);
                 deviceInfo.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
@@ -38,14 +40,15 @@ public class MainActivity extends AppCompatActivity {
         lightSensor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent in = new Intent(MainActivity.this,Light_Sensor.class);
+                Intent in = new Intent(MainActivity.this,RamInfoActivity.class);
                 startActivity(in);
             }
         });
         accelerometer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent in = new Intent(MainActivity.this,Accelerometer_Sensor.class);
+//                Intent in = new Intent(MainActivity.this,Accelerometer_Sensor.class);
+                Intent in = new Intent(MainActivity.this,SoundTest.class);
                 startActivity(in);
             }
         });
@@ -60,6 +63,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent in = new Intent(MainActivity.this,BatteryActivity.class);
+                startActivity(in);
+            }
+        });
+        allSensor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent in = new Intent(MainActivity.this,SensorList.class);
                 startActivity(in);
             }
         });

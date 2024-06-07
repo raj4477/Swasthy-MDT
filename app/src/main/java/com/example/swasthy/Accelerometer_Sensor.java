@@ -56,6 +56,10 @@ public class Accelerometer_Sensor extends AppCompatActivity {
         sm = (SensorManager)getSystemService(SENSOR_SERVICE);
         textView = (TextView)findViewById(R.id.accelerometerTextValue);
         list = sm.getSensorList(Sensor.TYPE_ACCELEROMETER);
+        List<Sensor> lis = sm.getSensorList(Sensor.TYPE_ALL);
+        for(int i = 0;i<lis.size();i++){
+            System.out.println(lis.get(i).getType());
+        }
         if(list.size()>0){
             sm.registerListener(sel, (Sensor) list.get(0), SensorManager.SENSOR_DELAY_NORMAL);
         }else{
